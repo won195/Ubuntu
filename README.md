@@ -1,77 +1,19 @@
-# Ubuntu
-Ubuntu
-###마운트 포인트 설명
-/ 루트 파티션
-/bin 리눅스의 기본 명령어가 들어 있음
-/sbin 시스템 관리용 명령어가 들어 있음
-/etc 시스템 환경 설정과 관련된 파일이 들어 있음
-/boot 부팅 커널을 저장
-/media 외부 장치를 마운트 하기 위하여 사용
-/usr 응용프로그램들을 주로 저장
-/lib 프로그램들의 라이브러리가 저장됨
-/deb 장치 파일들이 저장됨
-/home 사용자별 공간
-/root 시스템 관리자인 root 계정의 홈 디렉토리
-/var 시스템 운영 중 발생한 로그, 캐시 파일들이 저장됨
-/tmp 시스템 사용 중 발생한 임시 파일 저장(부팅 시 초기화)
-#2. 리눅스 명령어 기초
-모든 명령어는 --help 도움말 확인 가능 ex) shutdown --help
-ubuntu@master:~$ sudo shutdown now
-# shutdown 5
-# shutdown -c
-# shutdown -r now
-*sudo
--superuser 권한으로 명령어 실행
-*shutdown
-시스템 종료, 명령어 다음에 종료 시간 설정 가능 (5분 뒤 종료)
---c : 시스템 종료 명령 취소
--now : 입력 즉시 명령어 실행
---r : 재시작
-ubuntu@master:~$ sudo reboot
-# sudo reboot -p
-# sudo reboot -f
-reboot
-시스템 재시작
--p : poweroff, 시스템 종료
--f : force, 시스템 강제 재부팅
-ubuntu@master:~$ pwd
-/home/ubuntu
-*pwd : Print Work Directory의 약자이며, 현재 사용자가 있는 디렉토리 출력
-ubuntu@master:~$ ls -a
-. Documents .local Spark_Workspace
-.. Downloads .mozilla .ssh
-.bash_history .gnupg Music .sudo_as_admin_successful
-.bash_logout hadoop-env.sh Pictures Templates
-.bashrc hadoop.tar.gz .profile Videos
-.cache .ipynb_checkpoints Public .viminfo
-.config .ipython .python_history .wget-hsts
-Desktop .jupyter spark.tar.gz
-ubuntu@master:~$ ls -al
-total 1072476
-drwxr-xr-x 20 ubuntu ubuntu 4096 5월 24 12:08 .
-drwxr-xr-x 3 root root 4096 5월 15 10:59 ..
--rw------- 1 ubuntu ubuntu 13917 5월 31 18:10 .bash_history
--rw-r--r-- 1 ubuntu ubuntu 220 5월 15 10:59 .bash_logout
--rw-r--r-- 1 ubuntu ubuntu 4069 5월 24 10:22 .bashrc
-drwx------ 14 ubuntu ubuntu 4096 5월 18 15:37 .cache
-drwx------ 11 ubuntu ubuntu 4096 5월 15 11:07 .config
-ls
-list segments의 약자이며, 파일과 디렉터리의 모든 정보를 제공하며 특정 디렉터리와 특정 파일의 내용도
-제공합니다.
--a : 숨김파일을 포함하여 디렉토리에 존재하는 포든 파일 출력
--l : 파일을 리스트 형식으로 출력
-ubuntu@master:~$ cd Downloads/
-ubuntu@master:~/Downloads$
-cd
-해당 디렉터리로 이동
-ubuntu@master:~/Downloads$ mkdir test
-ubuntu@master:~/Downloads$ ls
-hadoop-3.3.5.tar.gz spark-3.4.0-bin-hadoop3.tgz test
-mkdir
-새 디렉토리 생성
-ubuntu@master:~/Downloads$ rmdir test
-ubuntu@master:~/Downloads$ ls
-hadoop-3.3.5.tar.gz spark-3.4.0-bin-hadoop3.tgz
-rmdir
-remove directory의 약자이며, 빈 디렉터리를 삭제할 때 사용하는 명령어
-디렉토리가 비어있지 않은 경우 삭제 불가능
+# 리눅스 기초
+## 1. 리눅스 디렉토리 구조
+* 리눅스는 기본적으로 유닉스 계열의 운영체제이므로 유닉스와 유사한 디렉토리 구조 사용
+* 유닉스는 시스템과 관련된 정보 및 장치들을 모두 파일로 관리 → 리눅스도 마찬가지
+##리눅스 파일의 종류
+###일반 파일
+*텍스트 파일, 이미지 파일, 실행 파일 등 리눅스에서 일반적으로 사용되는 대부분의 파일
+### 디렉토리
+* 리눅스에서는 디렉토리도 파일로 취급
+디렉토리 파일에는 해당 디렉토리에 저장된 파일이나 하위 디렉토리에 대한 정보가 저장됨
+### 심볼릭 링크(Symbolic Link)
+* 윈도우의 바로가기와 유사
+* 원본 파일과 다른 파일명을 지정하여 원본 파일을 대신 사용
+###장치파일
+* 리눅스에서는 HDD, 마우스 같은 장치들도 파일로 취급
+* 장치 파일은 /dev 경로에 위치
+###디렉토리 구조
+* 리눅스는 파일을 효율적으로 관리하기 위하여 계층구조의 디렉토리를 사용
+![image](https://github.com/won195/Ubuntu/assets/71067307/cbdbfb0e-6a54-4d0d-921b-c672301661f5)
